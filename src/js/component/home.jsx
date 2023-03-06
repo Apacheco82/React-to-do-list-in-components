@@ -41,9 +41,10 @@ const Home = () => {
         ))}
       </ul>
 
-      <div>{tareas.length} tareas</div> 
+      <div>
+       {tareas.length} {tareas.length >=2 ? "tareas" : "tarea"} </div> 
     </div>
-  );
+  );//ultimo ternario para que muestre el texto en singular o plural dependiendo de la longitud de la lista de tareas
 };
 
 export default Home;
