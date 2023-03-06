@@ -11,20 +11,19 @@ const Home = () => {
       <ul>
         <li>
         
-          <input
-            type="text"
+        <input
+  type="text"
+  onChange={(e) => setInput(e.target.value)} //cuando cambia el evento, lo almacena en setInput
+  value={input} // le decimos que el valor del input es el mismo que recibe el input de e.target.value
+  onKeyPress={(e) => {
+    if (e.key === "Enter" && input.length >= 3) { //cuando se pulse tecla
+      setTareas(tareas.concat(input));
+      setInput(""); //si la tecla es pulsada es enter y el input es mayor de 3 de longitud, mete el valor de la misma en un array o "null" y vacía el input
+    }
+  }}
+  placeholder="Add your to-do"
+/>
 
-            onChange={(e) => setInput(e.target.value)} //cuando cambia el evento, lo almacena en setInput
-            value={input} // le decimos que el valor del input es el mismo que recibe el input de e.target.value
-            
-            
-            onKeyPress={(e) => //cuando se pulse tecla
-              e.key === "Enter" && input.length >3 
-              ? setTareas(tareas.concat(input))
-              : null //ternario para indicar que si la tecla es pulsada es enter y el input es mayor de 3 de longitud, meta el valor de la misma en un array o "null"
-            }
-            placeholder="Add your to-do"
-          ></input>
         </li>
         {tareas.map((tarea, index) => ( //recorre el array de tareas para pintar cada una dentro de un li
           <li>
