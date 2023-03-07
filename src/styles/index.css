@@ -3,12 +3,14 @@ body {
 }
 
 .container {
-    display: grid;
+    display: grid !important;
     width: 400px;
+    height: fit-content;
     background-color: #fafafa;
     border-radius: 5px;
-    box-shadow: -10px 10px 5px -7px rgba(0, 0, 0, 0.14);
+    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
     border: 1px solid grey;
+    margin-bottom: 10px;
 }
 
 ul {
@@ -21,6 +23,9 @@ ul li {
     border: 1px solid grey;
     border-radius: 3px;
     padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 h1 {
@@ -32,9 +37,16 @@ input {
     border: none;
     background-color: #fafafa;
     width: 100%;
+
+
 }
 
-i{
-    float:right;
+i {
+    float: right;
     margin-top: auto;
+}
+
+.fecha {
+  text-align: right;
+    color: red;
 }
