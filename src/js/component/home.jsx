@@ -1,50 +1,37 @@
 import React, {useState} from "react";
-
+import Input from "./input.jsx";
+import Tareas from "./tareas.jsx";
 
 const Home = () => {
-  const [input, setInput] = useState(""); //para controlar el cambio del input
+  //const [input, setInput] = useState(""); //para controlar el cambio del input
   const [tareas, setTareas] = useState([]); //para ir creando las tareas y meterlas en un array
+
+  const addTarea = (tarea) => {
+    //se crea aqui la funcion para añadir la tarea y usarla en el componente
+    setTareas([...tareas, tarea]); //se copia la tarea y se añade una nueva
+  };
+  const deleteTarea = (index) => {
+    const newTareas = [...tareas];
+    newTareas.splice(index, 1);
+    setTareas(newTareas);
+  };
 
   return (
     <div className="container">
       <h1>To-Do List</h1>
       <ul>
-        <li>
-        
-        <input
-  type="text"
-  onChange={(e) => setInput(e.target.value)} //cuando cambia el evento, lo almacena en setInput
-  value={input} // le decimos que el valor del input es el mismo que recibe el input de e.target.value
-  onKeyPress={(e) => {
-    if (e.key === "Enter" && input.length >= 3) { //cuando se pulse tecla
-      setTareas(tareas.concat(input));
-      setInput(""); //si la tecla es pulsada es enter y el input es mayor de 3 de longitud, mete el valor de la misma en un array o "null" y vacía el input
-    }
-  }}
-  placeholder="Add your to-do"
-/>
-
-        </li>
-        {tareas.map((tarea, index) => ( //recorre el array de tareas para pintar cada una dentro de un li
-          <li>
-            <span>{tarea}</span> 
-            <i
-              className="fa-solid fa-xmark"
-              onClick={() =>
-                setTareas(
-                  tareas.filter((tarea, currentIndex) => index != currentIndex)
-                )
-              } // mete el valor de la tarea en un li, añade el icono y al pulsar sobre él, se elimina la tarea pulsada con currentIndex
-
-            ></i>
-          </li>
+        <Input addTarea={addTarea} />
+        {tareas.map((tarea, index) => (
+          <Tareas
+            key={index}
+            tarea={tarea}
+            index={index}
+            deleteTarea={() => deleteTarea(index)}
+          />
         ))}
       </ul>
-
-      <div>
-       {tareas.length} {tareas.length >=2 ? "tareas" : "tarea"} </div> 
     </div>
-  );//ultimo ternario para que muestre el texto en singular o plural dependiendo de la longitud de la lista de tareas
+  );
 };
 
 export default Home;
