@@ -1,9 +1,11 @@
 import React from "react";
 
 const Tareas = ({tarea, index, deleteTarea, checkTarea}) => {
+ 
   const handleCheck = () => {
     checkTarea(tarea, index);
   };
+ 
   const handleDelete = () => {
     deleteTarea(index);
   };

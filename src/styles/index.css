@@ -1,16 +1,18 @@
 body {
     margin-top: 100px;
+    font-family: 'Special Elite', cursive;
 }
 
 .container {
-    display: grid !important;
+    display: flex;
+    flex-direction: column;
     width: 400px;
     height: fit-content;
-    background-color: #fafafa;
+    background-color: #f0f8ff;
     border-radius: 5px;
-    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.75);
     border: 1px solid grey;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 ul {
@@ -25,12 +27,15 @@ ul li {
     padding: 5px;
     margin-bottom: 10px;
     margin-top: 0;
-    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.75);
 }
 
 h1 {
     text-align: center;
-    color: brown;
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5), 2px 2px 2px #B1B1B1;
+    color: #15858f;
+
+
 }
 
 input {
@@ -43,10 +48,25 @@ input {
 
 i {
     float: right;
-    margin-top: auto;
+    margin-top: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+
+.card {
+    background-color: #fafafa;
+    border: none;
+    display: inline-block;
+    width: 100%;
+}
+
+span {
+    border: none;
+
 }
 
 .fecha {
-  text-align: right;
-    color: red;
+    color: green;
+    float: right;
 }

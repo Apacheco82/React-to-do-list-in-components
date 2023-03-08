@@ -4,7 +4,7 @@ import Tareas from "./tareas.jsx";
 import TareasCheck from "./tareasCheck.jsx";
 
 const Home = () => {
-  //const [input, setInput] = useState(""); //para controlar el cambio del input
+ 
   const [tareas, setTareas] = useState([]); //para ir creando las tareas y meterlas en un array
   const [tareasCheck, setTareasCheck] = useState([]);
 
@@ -39,7 +39,10 @@ const Home = () => {
               checkTarea={() => checkTarea(tarea, index)}
             />
           ))}
+      <div>
+       {tareas.length} {tareas.length >=2 ? "tareas" : "tarea"} </div> 
         </ul>
+       
       </div>
       <div className="container">
         <h1>Completadas</h1>
@@ -48,8 +51,11 @@ const Home = () => {
           {tareasCheck.map((hecho) => (
             <TareasCheck hecho={hecho} />
           ))}
+            <div>
+       {tareasCheck.length} {tareasCheck.length >=2 ? "tareas completadas" : "tarea completada"} </div> 
         </ul>
       </div>
+     
     </>
   );
 };
