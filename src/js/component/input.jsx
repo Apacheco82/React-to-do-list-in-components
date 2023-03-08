@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const Input = ({addTarea}) => {
+const Input = ({addTarea}) => { //se le pasa como prop la funcion addtarea de home
   const [input, setInput] = useState(""); //para controlar el cambio del input
 
   return (
@@ -13,7 +13,7 @@ const Input = ({addTarea}) => {
           onKeyDown={(e) => {
             if (e.key === "Enter" && input.length >= 3) {
               //cuando se pulse tecla
-             addTarea(input)
+             addTarea(input) //llamamos a la funcion addtarea que está en home
               setInput(""); //si la tecla es pulsada es enter y el input es mayor de 3 de longitud, mete el valor de la misma en un array o "null" y vacía el input
             }
           }}
